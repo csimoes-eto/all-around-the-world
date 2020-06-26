@@ -5,6 +5,12 @@
 </script>
 
 <style>
+  @media (max-width: 480px) {
+    select {
+      float: left !important;
+      width: 50% !important;
+    }
+  }
   select {
     float: right;
     box-shadow: 0px 0px 5px 1px rgba(133, 133, 133, 0.3);

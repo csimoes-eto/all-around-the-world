@@ -32,6 +32,56 @@
 </script>
 
 <style>
+  @media (max-width: 480px) {
+    .container {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: 3fr 7fr !important;
+      height: 92vh;
+    }
+
+    .flag-image {
+      align-self: start !important;
+    }
+
+    .flag-image img {
+      width: 100%;
+    }
+
+    .country-info-outter {
+      display: initial !important;
+      margin-top: 1.5rem;
+    }
+
+    .country-info-name {
+      /* align-self: start !important; */
+    }
+    .country-info-inner-left {
+      margin-top: 0.75rem;
+    }
+
+    .country-info-inner-left p {
+      margin-bottom: 0.75rem;
+    }
+
+    .country-info-inner-right {
+      margin-top: 2rem;
+    }
+
+    .country-info-inner-right p {
+      margin-bottom: 0.75rem;
+    }
+
+    .country-info-borders {
+      margin-top: 2rem;
+    }
+    .country-info-borders p {
+      display: contents;
+    }
+    .bordering-countries-outter {
+      margin-top: 1rem !important;
+    }
+  }
+
   span {
     font-weight: 600;
   }

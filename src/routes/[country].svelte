@@ -5,7 +5,6 @@
     );
     const country = await getCountry.json();
     if (getCountry.ok && country[0].borders.length > 0) {
-      console.log("entrei");
       let bordersCodes = country[0].borders;
       let url = "https://restcountries.eu/rest/v2/alpha?codes=";
       //Define URL for bordering countries info
@@ -40,6 +39,11 @@
 </script>
 
 <style>
+  @media (max-width: 480px) {
+    button {
+      width: 25% !important;
+    }
+  }
   button {
     box-shadow: 0px 0px 5px 1px rgba(133, 133, 133, 0.3);
     border-radius: 5px;

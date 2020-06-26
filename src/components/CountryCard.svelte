@@ -7,6 +7,13 @@
 </script>
 
 <style>
+  @media (max-width: 480px) {
+    .card {
+      width: 75% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
   img {
     width: 100%;
     height: 50%;

@@ -29,7 +29,10 @@
 </script>
 
 <style>
-  @media (min-width: 480px) {
+  @media (max-width: 480px) {
+    .cards-container {
+      flex-direction: column;
+    }
   }
 
   .outer-container {
