@@ -5,6 +5,27 @@
     );
     const country = await getCountry.json();
     if (getCountry.ok) {
+      let bordersCodes = country[0].borders;
+      let url = "https://restcountries.eu/rest/v2/alpha?codes=";
+      //Define URL for bordering countries info
+      bordersCodes.forEach((borderCountry, index) => {
+        if (index === bordersCodes.length - 1) {
+          url += borderCountry;
+        } else {
+          url += `${borderCountry};`;
+        }
+      });
+
+      const getBorders = await this.fetch(url);
+      const borders = await getBorders.json();
+
+      let borderingCountries = [];
+      borders.forEach(country => {
+        borderingCountries = [...borderingCountries, country.name];
+      });
+
+      country[0].borders = borderingCountries;
+
       return { country };
     } else this.error(getCountry.status, err);
   }

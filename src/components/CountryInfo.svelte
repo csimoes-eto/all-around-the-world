@@ -1,5 +1,6 @@
 <script>
   import fetch from "node-fetch";
+  import { onMount } from "svelte";
 
   export let flag,
     name,
@@ -28,23 +29,6 @@
   languages.forEach(language => {
     displayLanguages = [...displayLanguages, language.name];
   });
-
-  let url = "https://restcountries.eu/rest/v2/alpha?codes=";
-
-  //Define URL for bordering countries info
-  borders.forEach((borderCountry, index) => {
-    if (index === borders.length - 1) {
-      url += borderCountry;
-    } else {
-      url += `${borderCountry};`;
-    }
-  });
-
-  //Get bordering countries info
-  const getBorderCountries = (async () => {
-    const response = await fetch(url);
-    return await response.json();
-  })();
 </script>
 
 <style>
@@ -194,15 +178,13 @@
           <span>Border Countries:</span>
         </p>
         <div class="bordering-countries-outter">
-          {#await getBorderCountries then borderingCountries}
-            {#each borderingCountries as borderingCountry}
-              <div class="bordering-countries-inner">
-                <a href={borderingCountry.name} rel="prefetch">
-                  <button>{borderingCountry.name}</button>
-                </a>
-              </div>
-            {/each}
-          {/await}
+          {#each borders as borderingCountry}
+            <div class="bordering-countries-inner">
+              <a href={borderingCountry} rel="prefetch">
+                <button>{borderingCountry}</button>
+              </a>
+            </div>
+          {/each}
         </div>
       </div>
     {/if}
