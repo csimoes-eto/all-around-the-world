@@ -4,7 +4,8 @@
       `https://restcountries.eu/rest/v2/name/${params.country}`
     );
     const country = await getCountry.json();
-    if (getCountry.ok) {
+    if (getCountry.ok && country[0].borders.length > 0) {
+      console.log("entrei");
       let bordersCodes = country[0].borders;
       let url = "https://restcountries.eu/rest/v2/alpha?codes=";
       //Define URL for bordering countries info
@@ -27,7 +28,8 @@
       country[0].borders = borderingCountries;
 
       return { country };
-    } else this.error(getCountry.status, err);
+    } else if (getCountry.ok) return { country };
+    else this.error(getCountry.status, err);
   }
 </script>
 

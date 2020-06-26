@@ -178,13 +178,15 @@
           <span>Border Countries:</span>
         </p>
         <div class="bordering-countries-outter">
-          {#each borders as borderingCountry}
-            <div class="bordering-countries-inner">
-              <a href={borderingCountry} rel="prefetch">
-                <button>{borderingCountry}</button>
-              </a>
-            </div>
-          {/each}
+          {#if borders.length > 0}
+            {#each borders as borderingCountry}
+              <div class="bordering-countries-inner">
+                <a href={borderingCountry} rel="prefetch">
+                  <button>{borderingCountry}</button>
+                </a>
+              </div>
+            {/each}
+          {/if}
         </div>
       </div>
     {/if}
